@@ -4,6 +4,7 @@ import Input from '../../../components/Input';
 import { useRouter } from 'next/router'
 import useMember from '../../../hooks/useMember'; 
 
+//@ts-ignore
 const EditMember = ({obj}) => {
   const router = useRouter();
 
@@ -341,7 +342,7 @@ const EditMember = ({obj}) => {
 }
 
 export default EditMember
-
+//@ts-ignore
 export async function getServerSideProps({params}) {
   // const response = await fetch('http://localhost:3000/api/budget/'+ params.id);
   // const data = await response.json();

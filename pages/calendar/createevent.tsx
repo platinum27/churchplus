@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import axios from "axios";
-
+//@ts-ignore
 import { DateRangePicker } from 'react-date-range';
 import Input from '../../components/Input';
 

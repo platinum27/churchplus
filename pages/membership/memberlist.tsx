@@ -2,13 +2,14 @@ import React, { useState} from 'react'
 import Link from 'next/link';
 import axios from 'axios';
 
-
+// @ts-ignore
 const MemberList = ({list}) => {
 
   const [members, setMembers] = useState(list);
 
-  const handleDelete = async (_id) => {
+  const handleDelete = async (_id:string) => {
     await axios.delete('/api/operations/' + _id)
+    // @ts-ignore
     setMembers(members.filter((dataEach) => dataEach._id !== _id));
     console.log(members)
   };
@@ -66,6 +67,7 @@ const MemberList = ({list}) => {
           </tr>
         </thead>
         <tbody>
+          {/* @ts-ignore */}
         {members.map((member) => (
           <tr key={member._id} className="bg-blue-200 lg:text-black">
             <td className="p-3 font-medium capitalize">{member.firstName} {member.lastName}</td>

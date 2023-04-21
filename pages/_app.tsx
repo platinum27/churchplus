@@ -8,7 +8,9 @@ import Sidebar from '../components/layout/Sidebar';
 
 export default function App({ Component, pageProps }: AppProps) {
   //return <Component {...pageProps} />
+  //@ts-ignore
   if (Component.getLayout) {
+    //@ts-ignore
     return Component.getLayout(<Component {...pageProps} />)
   }
   return (

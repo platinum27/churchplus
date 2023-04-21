@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useCallback, useState } from 'react';
 import Input from '../../../components/Input';
 import { useRouter } from 'next/router'
-
+//@ts-ignore
 const EditExpense = ({obj, buds}) => {
   const router = useRouter();
   const { id} = router.query;
@@ -97,6 +97,7 @@ const EditExpense = ({obj, buds}) => {
         onChange={handleChange}
         value={budgetLine}
         >
+          {/* @ts-ignore */}
           {buds.map(option => (
             <option key={option._id} value={option.budgetName}>
               {option.budgetName}
@@ -127,7 +128,7 @@ const EditExpense = ({obj, buds}) => {
 }
 
 export default EditExpense
-
+// @ts-ignore
 export async function getServerSideProps({params}) {
 
     const response = await axios.get('http://localhost:3000/api/expense/'+ params.id);

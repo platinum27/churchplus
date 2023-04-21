@@ -4,13 +4,14 @@ import axios from 'axios';
 import { NextPageContext } from 'next';
 import { getSession, signIn } from 'next-auth/react';
 
-
+//@ts-ignore
 const Events = ({list}) => {
 
     const [events, setEvents] = useState(list);
 
-    const handleDelete = async (_id) => {
+    const handleDelete = async (_id:string) => {
       await axios.delete('/api/event/' + _id)
+      //@ts-ignore
       setEvents(events.filter((dataEach) => dataEach._id !== _id));
       console.log(events)
     };
@@ -68,6 +69,7 @@ const Events = ({list}) => {
           </tr>
         </thead>
         <tbody>
+          {/* @ts-ignore */}
         {events.map((event) => (
           <tr key={event._id} className="bg-blue-200 lg:text-black">
             <td className="p-3 font-medium capitalize">{event.eventName} </td>

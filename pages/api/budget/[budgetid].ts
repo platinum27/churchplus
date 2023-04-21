@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         default:
             return res.status(405).end(`Method ${req.method} Not Allowed`)
     }
-    async function getBudgetById(id){
+    async function getBudgetById(id:string){
         try {
         console.log(id);
         await connectMongo();
@@ -35,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     }
 
-    async function updateBudget(id){
+    async function updateBudget(id:string){
         try {
             await connectMongo();
             await Budget.findOneAndUpdate({_id:id}, req.body);
@@ -49,7 +49,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     }
 
-    async function deleteBudget(id){
+    async function deleteBudget(id:string){
         try {
             await connectMongo();
 

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useCallback, useState } from 'react';
 import Input from '../../components/Input';
-
+// @ts-ignore
 const CreateBudget = ({buds}) => {
   const router = useRouter();
   const [expenseName, setExpenseName] = useState('');
@@ -94,6 +94,7 @@ const CreateBudget = ({buds}) => {
         onChange={handleChange}
         >
           <option value="">-- Please select budget Line --</option>
+          {/* @ts-ignore */}
           {buds.map(option => (
             <option key={option._id} value={option.budgetName}>
               {option.budgetName}

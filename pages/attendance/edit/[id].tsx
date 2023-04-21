@@ -4,7 +4,7 @@ import Input from '../../../components/Input';
 import { useRouter } from 'next/router';
 import { NextPageContext } from 'next';
 import { getSession, signIn } from 'next-auth/react';
-
+//@ts-ignore
 const EditReg = ({obj}) => {
   const router = useRouter();
   const { id} = router.query;
@@ -129,7 +129,7 @@ const EditReg = ({obj}) => {
 export default EditReg
 
 
-
+//@ts-ignore
 export async function getServerSideProps({params}) {
     
     

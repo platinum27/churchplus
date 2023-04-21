@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         default:
             return res.status(405).end(`Method ${req.method} Not Allowed`)
     }
-    async function getMemberById(id){
+    async function getMemberById(id:string){
         try {
         console.log(id);
         await connectMongo();
@@ -36,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     }
 
-    async function updateMember(id){
+    async function updateMember(id:string){
         try {
             await connectMongo();
 
@@ -51,7 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     }
 
-    async function deleteMember(id){
+    async function deleteMember(id:string){
         try {
             await connectMongo();
 

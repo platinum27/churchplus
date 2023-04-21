@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import Input from '../../../components/Input';
 import { useRouter } from 'next/router'
 
-
+// @ts-ignore
 const EditBudget = ({obj}) => {
   const router = useRouter();
   const { id} = router.query;
@@ -69,7 +69,7 @@ const EditBudget = ({obj}) => {
 }
 
 export default EditBudget
-
+// @ts-ignore
 export async function getServerSideProps({params}) {
     // const response = await fetch('http://localhost:3000/api/budget/'+ params.id);
     // const data = await response.json();

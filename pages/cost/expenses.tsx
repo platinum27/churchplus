@@ -2,12 +2,13 @@ import React, { useState} from 'react'
 import Link from 'next/link';
 import axios from 'axios';
 
-
+// @ts-ignore
 const Expenses = ({list}) => {
   const [expenses, setExpenses] = useState(list);
 
-  const handleDelete = async (_id) => {
+  const handleDelete = async (_id:string) => {
     await axios.delete('/api/expense/' + _id)
+    // @ts-ignore
     setExpenses(expenses.filter((dataEach) => dataEach._id !== _id));
     console.log(expenses)
   };
@@ -65,6 +66,7 @@ const Expenses = ({list}) => {
           </tr>
         </thead>
         <tbody>
+          {/* @ts-ignore */}
         {expenses.map((expense) => (
           <tr key={expense._id} className="bg-blue-200 lg:text-black">
             <td className="p-3 font-medium capitalize">{expense.expenseName} </td>

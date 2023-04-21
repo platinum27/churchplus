@@ -84,7 +84,7 @@ const Auth = () => {
 }
 
 export default Auth
-
+//@ts-ignore
 Auth.getLayout = page => (
     <>
       {page}

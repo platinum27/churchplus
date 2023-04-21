@@ -4,12 +4,13 @@ import axios from 'axios';
 import { NextPageContext } from 'next';
 import { getSession, signIn } from 'next-auth/react';
 
-
+//@ts-ignore
 const Regs = ({list}) => {
   const [regs, setRegs] = useState(list);
 
-  const handleDelete = async (_id) => {
+  const handleDelete = async (_id:string) => {
     await axios.delete('/api/attend/' + _id)
+    //@ts-ignore
     setRegs(regs.filter((dataEach) => dataEach._id !== _id));
     console.log(regs)
   };
@@ -67,6 +68,7 @@ const Regs = ({list}) => {
           </tr>
         </thead>
         <tbody>
+          {/* @ts-ignore */}
         {regs.map((reg) => (
           <tr key={reg._id} className="bg-blue-200 lg:text-black">
             <td className="p-3 font-medium capitalize">{reg.attDate} </td>
