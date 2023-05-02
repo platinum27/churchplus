@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useCallback, useState } from 'react';
 import Input from '../../components/Input';
+import getBasePath from '../../libs/getBasePath';
 // @ts-ignore
 const CreateBudget = ({buds}) => {
   const router = useRouter();
@@ -128,7 +129,7 @@ export default CreateBudget
 
 export async function getServerSideProps() {
 
-  const response = await fetch('http://localhost:3000/api/budget/getbudgets');
+  const response = await fetch(`${getBasePath()}/api/budget/getbudgets`);
   const data = await response.json();
   return { props: { 
            buds: data
