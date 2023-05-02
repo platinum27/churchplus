@@ -3,6 +3,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import { NextPageContext } from 'next';
 import { getSession, signIn } from 'next-auth/react';
+import getBasePath from '../../libs/getBasePath';
 
 //@ts-ignore
 const Events = ({list}) => {
@@ -113,7 +114,8 @@ if (!session) {
   }
 }
 
-  const response = await fetch('http://localhost:3000/api/event/getevents');
+  
+  const response = await fetch(`${getBasePath()}/api/event/getevents`);
   const data = await response.json();
   return { props: { 
            list: data

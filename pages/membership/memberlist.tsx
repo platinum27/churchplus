@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
 import Link from 'next/link';
 import axios from 'axios';
+import getBasePath from '../../libs/getBasePath';
 
 // @ts-ignore
 const MemberList = ({list}) => {
@@ -101,8 +102,7 @@ const MemberList = ({list}) => {
 export default MemberList
 
 export async function getServerSideProps() {
-
-  const response = await fetch('http://localhost:3000/api/operations/getmembers');
+  const response = await fetch(`${getBasePath()}/api/operations/getmembers`);
   const data = await response.json();
   return { props: { 
            list: data

@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
 import Link from 'next/link';
 import axios from 'axios';
+import getBasePath from '../../libs/getBasePath';
 
 // @ts-ignore
 const Expenses = ({list}) => {
@@ -101,8 +102,7 @@ const Expenses = ({list}) => {
 export default Expenses
 
 export async function getServerSideProps() {
-
-  const response = await fetch('http://localhost:3000/api/expense/getexpenses');
+  const response = await fetch(`${getBasePath()}/api/expense/getexpenses`);
   const data = await response.json();
   return { props: { 
            list: data
